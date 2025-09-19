@@ -1,0 +1,92 @@
+@import 'tailwindcss';
+
+/* Mobile-first optimizations */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  /* Prevent iOS zoom on input focus */
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  /* Prevent horizontal scroll */
+  overflow-x: hidden;
+  /* Better mobile scrolling */
+  -webkit-overflow-scrolling: touch;
+  /* Prevent bounce on iOS */
+  overscroll-behavior: contain;
+}
+
+/* Custom sidebar width utilities */
+@layer utilities {
+  .w-70 {
+    width: 17.5rem; /* 280px */
+  }
+  
+  .ml-70 {
+    margin-left: 17.5rem; /* 280px */
+  }
+  
+  /* Mobile-optimized sidebar */
+  .mobile-sidebar {
+    width: min(85vw, 280px);
+  }
+  
+  /* Mobile sidebar overlay */
+  .sidebar-overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+  }
+  
+  /* Smooth transitions */
+  .sidebar-transition {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  /* Mobile touch improvements */
+  .touch-friendly {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Prevent zoom on inputs (iOS Safari) */
+  .no-zoom {
+    font-size: 16px;
+  }
+  
+  /* Safe area padding for notched devices */
+  .safe-area-top {
+    padding-top: env(safe-area-inset-top);
+  }
+  
+  .safe-area-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  
+  /* Container with proper mobile constraints */
+  .mobile-container {
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+  
+  /* Extra small breakpoint utilities */
+  @media (min-width: 475px) {
+    .xs\:grid-cols-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  
+  /* Text truncation for mobile */
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
